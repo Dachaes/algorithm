@@ -5,14 +5,14 @@ for _ in range(10):
     maze.append(list(map(int, input().split())))
 
 while True:
-    # if ant eats food?
+    # If the ant eats food
     if maze[ant[0]][ant[1]] == 2:
         maze[ant[0]][ant[1]] = 9
         break
     else:
         maze[ant[0]][ant[1]] = 9
 
-    # ant is moving in maze
+    # The ant is moving in maze
     if maze[ant[0]][ant[1] + 1] == 0 or maze[ant[0]][ant[1] + 1] == 2:
         ant[1] += 1
     elif maze[ant[0] + 1][ant[1]] == 0 or maze[ant[0] + 1][ant[1]] == 2:
