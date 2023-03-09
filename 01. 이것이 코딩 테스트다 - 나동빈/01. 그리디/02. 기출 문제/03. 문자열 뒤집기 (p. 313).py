@@ -11,5 +11,5 @@ for number in numbers:
         group_of_num += 1
     previous_number = number
 
-res = group_of_num
+res = group_of_num // 2
 print(res)
