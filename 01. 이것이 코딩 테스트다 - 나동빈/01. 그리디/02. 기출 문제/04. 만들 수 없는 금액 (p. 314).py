@@ -5,5 +5,11 @@ N = int(input())
 coins = list(map(int, input().split()))
 coins.sort()
 
+price = 1
+for coin in coins:
+    if price >= coin:
+        price += coin
+    else:
+        break
 
-print(coins)
+print(price)
