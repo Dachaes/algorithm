@@ -1,6 +1,6 @@
 # 03. 1이 될 때까지 (p. 99)
 
-# input
+# Input
 N, K = map(int, input().split())
 
 res = 0

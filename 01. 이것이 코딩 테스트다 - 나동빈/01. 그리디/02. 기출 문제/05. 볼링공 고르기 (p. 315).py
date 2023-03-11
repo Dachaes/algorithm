@@ -1,6 +1,6 @@
 # 05. 볼링공 고르기 (p. 315)
 
-# input
+# Input
 N, M = list(map(int, input().split()))
 balls = list(map(int, input().split()))
 

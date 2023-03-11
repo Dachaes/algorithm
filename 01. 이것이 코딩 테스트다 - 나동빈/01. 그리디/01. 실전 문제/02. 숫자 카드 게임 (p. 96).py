@@ -1,6 +1,6 @@
 # 02. 숫자 카드 게임 (p. 96)
 
-# input
+# Input
 N, M = map(int, input().split())
 num_cards = []
 for _ in range(N):

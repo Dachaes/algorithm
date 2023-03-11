@@ -1,6 +1,6 @@
 # 01. 모험가 길드 (p. 311)
 
-# input
+# Input
 N = int(input())
 people = list(map(int, input().split()))
 

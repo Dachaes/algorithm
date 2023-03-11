@@ -1,6 +1,6 @@
 # 02. 곱하기 혹은 더하기 (p. 312)
 
-# input
+# Input
 number = list(map(int, input()))
 
 res = number[0]

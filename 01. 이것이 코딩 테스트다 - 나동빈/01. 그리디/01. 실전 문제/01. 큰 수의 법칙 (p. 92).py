@@ -1,6 +1,6 @@
 # 01. 큰 수의 법칙 (p. 92)
 
-# input
+# Input
 N, M, K = map(int, input().split())
 num_list = list(map(int, input().split()))
 
