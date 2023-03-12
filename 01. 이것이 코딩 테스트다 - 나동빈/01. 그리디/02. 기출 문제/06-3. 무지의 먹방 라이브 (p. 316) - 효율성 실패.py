@@ -9,7 +9,9 @@ def solution(food_times, k):
     # 1. 먹을 음식이 있을 때
     max_time = max(food_times)
     for i in range(1, max_time + 1):
-        # 1. i초 기준으로 남은 음식의 갯수(cnt) 체크
+        # 1. i초 기준으로 남은 음식의 갯3 1 2 6 5
+        # 10
+        # 수(cnt) 체크
         cnt = 0
         for food_time in food_times:
             if food_time >= i:
