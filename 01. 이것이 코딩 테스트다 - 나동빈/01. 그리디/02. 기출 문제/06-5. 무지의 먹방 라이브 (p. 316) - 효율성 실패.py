@@ -2,7 +2,7 @@
 # https://programmers.co.kr/learn/courses/30/lessons/42891
 
 def solution(food_times, k):
-    len_time = len(food_times)                      # (ex: [4 4 4 7 7 9] -> 6)
+    len_time = len(food_times)                          # (ex: [4 4 4 7 7 9] -> 6)
     previous_time = 0
 
     # 0. 먹을 음식이 없을 때 + 먹을 시간 k가 너무 많아서 결국 다 먹게 될 때
@@ -19,10 +19,9 @@ def solution(food_times, k):
                 k -= (time * len_time)
                 len_time -= cnt
                 previous_time = current_time
-
             # 2. 시간 k가 충분하지 않아서 묶음으로 뺄셈이 되지 않을 때 (ex: [4 4 4 7 7 9], k = 10)
             else:
-                k = k % len_time                        # 2-1. 마지막으로 먹은 음식 찾기 (k = 10 % 6 -> 4)
+                k %= len_time                           # 2-1. 마지막으로 먹은 음식 찾기 (k = 10 % 6 -> 4)
                 if k == 0:                              # 2-2. 다음으로 먹을 음식 순서를 order에 저장
                     order = 1
                 else:
@@ -32,7 +31,6 @@ def solution(food_times, k):
                         order -= 1
                     if order == 0:
                         return i + 1
-
 
 # Input
 food_times_list = list(map(int, input().split()))
