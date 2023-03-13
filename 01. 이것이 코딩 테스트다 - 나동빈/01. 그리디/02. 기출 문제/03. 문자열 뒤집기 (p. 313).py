@@ -1,4 +1,5 @@
 # 03. 문자열 뒤집기 (p. 313)
+# https://www.acmicpc.net/problem/1439
 
 # Input
 numbers = list(map(int, input()))
