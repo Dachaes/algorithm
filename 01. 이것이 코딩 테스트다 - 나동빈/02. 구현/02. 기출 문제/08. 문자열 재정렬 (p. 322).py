@@ -15,6 +15,6 @@ for i in range(len(words)):
 
 alphabet_words.sort()
 number_words.sort()
-sorted_words = alphabet_words + number_words
+sorted_words = "".join(alphabet_words + number_words)
 
-print("".join(alphabet_words + number_words))
+print(sorted_words)
