@@ -5,11 +5,11 @@ def solution(s):
     len_s = int(len(s))
     temp_list = []
     answers = [len_s]
-    for i in range(1, (len_s // 2) + 1):       # i -> 한 묶음 안의 문자 개수
+    for i in range(1, (len_s // 2) + 1):        # i -> 한 묶음 안의 문자 개수
         temp1 = []
         temp2 = []
         cnt = 1
-        for j in range(len_s):      # j -> 리스트 s를 돌리는 변수 (0 ~ len_s)
+        for j in range(len_s):                  # j -> 리스트 s를 돌리는 변수 (0 ~ len_s)
             # 1. temp1, temp2에 i만큼의 비교할 문자를 저장한다.
             if len(temp1) != i:
                 temp1.append(s[j])

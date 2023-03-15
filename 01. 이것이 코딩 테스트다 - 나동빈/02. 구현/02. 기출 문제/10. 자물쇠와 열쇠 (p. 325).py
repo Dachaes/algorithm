@@ -2,28 +2,37 @@
 # https://programmers.co.kr/learn/courses/30/lessons/60059
 
 def print_key(key):
-    key_row = len(key)
-    key_column = len(key[0])
-    for i in range(key_row):
-        for j in range(key_column):
+    row = len(key)
+    column = len(key[0])
+    for i in range(row):
+        for j in range(column):
             print(key[i][j], end=" ")
         print("")
     print("")
 
 def solution(key, lock):
-    key_row = len(key)
-    key_column = len(key[0])
+    len_key = len(key)
+    len_lock = len(lock)
     print_key(key)
+
+    def rotate_90(matrix):
+        new_matrix = []
+        for i in range(len_key):
+            temp = []
+            for j in range(len_key - 1, -1, -1):
+                temp.append(matrix[j][i])
+            new_matrix.append(temp)
+        return new_matrix
 
     for _ in range(3):
         new_key = []
-        for i in range(key_column):
-            temp_key = []
-            for j in range(key_row):
-                print(f"{i}:{j}, {key[i][j]}")
-                temp_key.append(key[i][j])
-            new_key.append(temp_key)
-        print_key(new_key)
+        for i in range(len_key - 1):
+
+
+
+        key = rotate_90(key)
+        print_key(key)
+
 
     answer = True
     return answer
