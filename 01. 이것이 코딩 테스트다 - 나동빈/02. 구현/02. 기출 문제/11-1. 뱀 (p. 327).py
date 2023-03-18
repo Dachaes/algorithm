@@ -51,9 +51,13 @@ while True:
     # 3. 일정 시간 이후에 방향 변환 정보를 확인하여 뱀의 방향을 바꾼다.
     if check_time < len(rotations) and time == int(rotations[check_time][0]):
         if rotations[check_time][1] == 'L':
-            direction = (direction - 1) % 4
+            direction -= 1
         else:
-            direction = (direction + 1) % 4
+            direction += 1
+        if direction < 0:
+            direction += 4
+        elif direction > 3:
+            direction -= 4
         check_time += 1
 
 print(time)
