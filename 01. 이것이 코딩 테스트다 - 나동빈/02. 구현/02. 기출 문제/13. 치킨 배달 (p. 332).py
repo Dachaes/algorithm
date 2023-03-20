@@ -27,13 +27,11 @@ for chosen_restaurants in all_cases_of_chosen_restaurants:
     # 1. 집 하나를 고른다.
     for house in houses:
         chicken_street = 0
-        hou_x = house[0]
-        hou_y = house[1]
+        hou_x, hou_y = house[0], house[1]
         # 2. M개를 치킨집을 고르는 경우의 수 중 하나에서, 가장 가까운 거리의 치킨집의 치킨 거리를 계산한다.
         # 즉, 1에서 고른 집의 치킨 거리(최솟값)
         for i in range(num_restaurants):
-            res_x = chosen_restaurants[i][0]
-            res_y = chosen_restaurants[i][1]
+            res_x, res_y = chosen_restaurants[i][0], chosen_restaurants[i][1]
             if chicken_street == 0 or chicken_street > abs(res_x - hou_x) + abs(res_y - hou_y):
                 chicken_street = abs(res_x - hou_x) + abs(res_y - hou_y)
         # 3. 모든 집의 치킨 거리를 합하여 도시의 치킨거리를 계산한다.
