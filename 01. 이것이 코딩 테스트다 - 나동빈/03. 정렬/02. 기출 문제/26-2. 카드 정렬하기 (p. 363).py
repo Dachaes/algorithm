@@ -12,7 +12,7 @@ heapq.heapify(cards)
 res = 0
 while len(cards) > 1:
     sum_cards = heapq.heappop(cards) + heapq.heappop(cards)
-    cards.append(sum_cards)
+    heapq.heappush(cards, sum_cards)
     res += sum_cards
 
 print(res)
