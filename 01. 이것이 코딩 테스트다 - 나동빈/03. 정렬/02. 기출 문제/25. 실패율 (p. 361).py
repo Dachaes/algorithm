@@ -19,7 +19,7 @@ def solution(N, stages):
     for user in users:
         answer.append(user[0])
 
-    return answer
+    return users
 
 # Input
 N1 = 5
@@ -30,5 +30,9 @@ N2 = 4
 STAGES2 = [4, 4, 4, 4, 4]
 # [4, 1, 2, 3]
 
+N3 = 2
+STAGES3 = [1, 1]
+# [1, 2]
+
 # Output
-print(solution(N1, STAGES1))
+print(solution(N3, STAGES3))
