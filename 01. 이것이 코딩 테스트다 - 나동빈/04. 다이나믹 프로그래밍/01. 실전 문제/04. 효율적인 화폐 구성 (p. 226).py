@@ -20,7 +20,7 @@ for i in range(1, target + 1):
     else:
         temp = -1
         for money in moneys:
-            if i - money > 1 and sum_price[i - money] != -1:
+            if i - money > 0 and sum_price[i - money] != -1:
                 if temp == -1:
                     temp = sum_price[i - money] + 1
                 else:
