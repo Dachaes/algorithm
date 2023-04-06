@@ -16,7 +16,7 @@ for i in range(1, target + 1):
     elif i in moneys:
         sum_price.append(1)
     # 3. 목표값이 가지고 있는 화폐의 합으로 계산해야 할 경우,
-    # 이전에 계산했던 값(이전 누적값) + 가지고 있는 화폐 단위(1개)로 계산이 가능한지 확인
+    # 이전에 계산했던 값(이전 누적값) + 가지고 있는 화폐 단위(1개)로 계산이 가능한 지 확인
     else:
         temp = -1
         for money in moneys:
