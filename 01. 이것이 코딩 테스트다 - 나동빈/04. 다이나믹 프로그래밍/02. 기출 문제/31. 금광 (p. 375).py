@@ -6,10 +6,10 @@ num_testcase = int(input())
 while num_testcase != 0:
     # Input
     row, column = map(int, input().split())
-    gold_input = list(map(int, input().split()))
+    gold = list(map(int, input().split()))
     mine = []
-    for i in range(0, len(gold_input), column):
-        mine.append(gold_input[i:i + column])
+    for i in range(0, len(gold), column):
+        mine.append(gold[i:i + column])
 
     sum_gold = [[0] * column for _ in range(row)]
     answers = []
