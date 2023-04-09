@@ -7,6 +7,12 @@ plan = [[0, 0]]
 for i in range(date):
     plan.append(list(map(int, input().split())))
 
-print(plan)
-for i in range(1, date + 1):
-    for j in range(1, i + 1):
+max_profit = [0] * (date + 2)
+
+for i in range(date, 0, -1):
+    if i + plan[i][0] <= date + 1:
+        max_profit[i] = max(plan[i][1] + max_profit[i + plan[i][0]], max_profit[i + 1])
+    else:
+        max_profit[i] = max_profit[i + 1]
+
+print(max_profit[1])
