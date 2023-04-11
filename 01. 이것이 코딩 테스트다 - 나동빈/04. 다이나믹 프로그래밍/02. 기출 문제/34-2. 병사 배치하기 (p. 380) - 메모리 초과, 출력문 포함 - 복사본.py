@@ -10,27 +10,26 @@ for i in range(1, num + 1):
     soldier.append([i, data[i - 1]])
 
 armys = [[soldier[1][0]]]
-max_size = 0
 for i in range(2, num + 1):
     new_army = 1
     print(f"** armys: {armys}")
     for army in armys:
-        #print(f" army: {army} // 차례: {i}- {soldier[i][1]}")
-        if soldier[army[-1]][1] > soldier[i][1]:
-            #print("  check1")
-            army.append(i)
-            new_army = 0
-        elif soldier[army[0]][1] > soldier[i][1] > soldier[i - 1][1] and (i - 1) in army:
-            #print("  check2")
+        print(f" army: {army} // 차례: {i}- {soldier[i][1]}")
+        if soldier[army[0]][1] > soldier[i][1] > soldier[army[-1]][1]:
+            print("  check1")
             temp = []
             for index in army:
-                temp.append(index)
-            temp.pop(-1)
+                if soldier[index][1] > soldier[i][1]:
+                    temp.append(index)
             temp.append(i)
             armys.append(temp)
             new_army = 0
+        elif soldier[army[-1]][1] > soldier[i][1]:
+            print("  check2")
+            army.append(i)
+            new_army = 0
     if new_army:
-        #print("  check3")
+        print("  check3")
         armys.append([i])
 
 print(f"** armys: {armys}")
