@@ -2,29 +2,28 @@
 
 # Input
 n, m = map(int, input().split())
-ice = []
+ice_mold = []
 for i in range(n):
-    ice.append(list(map(int, input())))
+    ice_mold.append(list(map(int, input())))
 
-def same_ice(row, col):
-    if ice[row][col] == 0:
-        ice[row][col] = 1
+def same_mold(row, col):
+    if ice_mold[row][col] == 0:
+        ice_mold[row][col] = 1
+        if 0 <= row - 1:
+            same_mold(row - 1, col)
         if row + 1 < n:
-            same_ice(row + 1, col)
+            same_mold(row + 1, col)
+        if 0 <= col - 1:
+            same_mold(row, col - 1)
         if col + 1 < m:
-            same_ice(row, col + 1)
+            same_mold(row, col + 1)
 
 res = 0
 for i in range(n):
     for j in range(m):
-        if ice[i][j] == 0:
-            ice[i][j] = 1
+        if ice_mold[i][j] == 0:
+            same_mold(i, j)
             res += 1
-            if i + 1 < n:
-                same_ice(i + 1, j)
-            if j + 1 < m:
-                same_ice(i, j + 1)
-
 
 print(res)
 
