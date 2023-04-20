@@ -1,12 +1,13 @@
 # 15. 특정 거리의 도시 찾기 (p. 339)
 # https://www.acmicpc.net/problem/18352
+# list 사용 / 단방향 도로 입력을 그대로 사용
 import sys
 
 # Input
 num_city, num_street, final_dist, start = map(int, sys.stdin.readline().split())
-cities = []
+streets = []
 for _ in range(num_street):
-    cities.append(list(map(int, sys.stdin.readline().split())))
+    streets.append(list(map(int, sys.stdin.readline().split())))
 
 dist_list = [-1] * (num_city + 1)   # 최단 거리를 저장할 리스트
 pos_city = [start]                  # 현재 위치의 도시
@@ -25,10 +26,10 @@ while pos_city:
             dist_list[pos] = dist
             if dist == final_dist:
                 res.append(pos)
-        # 2-2. 다음 위치(다음 최단 거리)의 도시 리스트 생성한다.
-        for city in cities:
-            if pos == city[0] and city[1] not in pos_city:
-                pos_city.append(city[1])
+            # 2-2. 다음 위치(다음 최단 거리)의 도시 리스트 생성한다.
+            for street in streets:
+                if pos == street[0] and street[1] not in pos_city:
+                    pos_city.append(street[1])
 
     print(f" dist_list: {dist_list}")
     # 3. 다음 최단 거리 확인
