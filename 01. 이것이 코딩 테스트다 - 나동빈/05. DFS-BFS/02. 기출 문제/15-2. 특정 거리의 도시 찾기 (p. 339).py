@@ -11,7 +11,6 @@ for _ in range(num_street):
     data = list(map(int, sys.stdin.readline().split()))
     if data[1] not in streets[data[0]]:
         streets[data[0]].append(data[1])
-print(f"streets: {streets}")
 
 dist_list = [-1] * (num_city + 1)   # 최단 거리를 저장할 리스트
 pos_city = deque([[start]])         # 현재 위치의 도시
@@ -21,11 +20,9 @@ dist = 0                            # 현재 확인하고 있는 최단 거리
 while pos_city:
     # 1. 현재 위치의 도시를 pos_list에 저장한다.
     pos_list = pos_city.popleft()
-    print(f"pos_list: {pos_list}, dist: {dist}")
     # 2.
-    temp_city = []
+    next_city = []
     for pos in pos_list:
-        print(f"  pos: {pos} 확인 중!")
         # 2-1. 해당 도시를 간 적이 아직 없다면, dist_list에 해당 도시의 최단 거리를 저장한다.
         if dist_list[pos] == -1:
             dist_list[pos] = dist
@@ -33,13 +30,9 @@ while pos_city:
                 res.append(pos)
             # 2-2. 다음 위치(다음 최단 거리)의 도시 리스트 생성한다.
             for city in streets[pos]:
-                print(f"  streets[pos]: {streets[pos]} 확인 중!")
-                if city not in pos_city:
-                    temp_city.append(city)
-                print(f"  temp_city: {temp_city}")
-    pos_city.append(temp_city)
-    print(f"   pos_city: {pos_city}")
-    print(f" dist_list: {dist_list}")
+                if dist_list[city] == -1:
+                    next_city.append(city)
+    pos_city.append(next_city)
     # 3. 다음 최단 거리 확인
     dist += 1
 

@@ -25,6 +25,9 @@ while maze_deq:
 
 print(maze[n - 1][m - 1])
 
+# for i in range(n):
+#     print(maze[i])
+
 # 5 6
 # 101010
 # 111111
