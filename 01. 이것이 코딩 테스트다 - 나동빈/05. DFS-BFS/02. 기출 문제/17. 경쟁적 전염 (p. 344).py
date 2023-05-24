@@ -32,7 +32,7 @@ def contaminate(x, y, virus):
             next_positions.append([new_x, new_y])
 
 
-# 전제 종료 조건 : 시간 s가 지나면 while 문을 더 이상 실행하지 않는다.
+# 종료 전제 조건 : 시간 s가 지나면 while 문을 더 이상 실행하지 않는다.
 while s != 0:
     # 종료 1 : 더 이상 전염시킬 수 없으면 while 문을 빠져 나온다.
     if not deq_tube:
