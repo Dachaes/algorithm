@@ -17,7 +17,7 @@ dx = [0, 0, -1, 1]
 dy = [-1, 1, 0, 0]
 
 
-# 원본의 연구실에서 빈 공간(0)의 위치를 empty_space 리스트에 저장한다.
+# 원본의 연구실에서 빈 공간(0)의 위치를 empty_space 리스트에 저장하는 함수
 def find_empty_space():
     for i in range(n):
         for j in range(m):
@@ -58,7 +58,7 @@ find_empty_space()
 possible_comb = list(combinations(empty_space, 3))
 num_comb = len(possible_comb)
 
-# 모든 경우의 수를 체크한다. (num_comb가 0일 때까지)
+# 모든 경우의 수를 체크한다.
 cnt = 0
 while num_comb != cnt:
     # 1. 기존 연구실을 새 연구실에 복사한다.
