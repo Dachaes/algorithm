@@ -41,7 +41,7 @@ while s != 0:
     if test_tube[target_x][target_y] != 0:
         break
 
-    # 가지고 있는 바이러스 정보만큼 for 문을 돈다. (1 for 문 = 1초)
+    # 가지고 있는 바이러스의 위치 정보(deq_tube)만큼 for 문을 돈다. (1 for 문 = 1초)
     for i in range(len(deq_tube)):
         positions_of_virus = deq_tube.popleft()
         next_positions = []
