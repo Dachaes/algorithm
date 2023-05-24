@@ -64,6 +64,7 @@ while num_comb != cnt:
     # 1. 기존 연구실을 새 연구실에 복사한다.
     # while 문을 돌며 매번 복사할 때, 새 벽 3개를 세우는 작업도 함께 한다.
     new_lab = replicate(lab, cnt)
+    # print_lab(new_lab)
     new_safety_zone = 0
 
     # 2. 새로 만든 연구실의 오염을 진행시킨다.
@@ -78,6 +79,7 @@ while num_comb != cnt:
             if new_lab[i][j] == 0:
                 new_safety_zone += 1
 
+    # print_lab(new_lab)
     safety_zone = max(safety_zone, new_safety_zone)
     cnt += 1
 print(safety_zone)
