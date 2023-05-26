@@ -1,7 +1,8 @@
 from collections import deque
-list_a = [[1]]
-i = deque(list_a)
-i.popleft()
 
-if not i:
-    print(123)
+deq = deque()
+deq.append(1)
+deq.append(2)
+deq.append(3)
+
+print(deq[2])
