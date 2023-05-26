@@ -4,10 +4,10 @@ from collections import deque
 
 
 # '올바른 괄호 문자열'인지 확인하는 함수
-def is_correct(string):
+def is_correct(deq):
     num = 0
-    for i in range(len(string)):
-        char = string[i]
+    for i in range(len(deq)):
+        char = deq[i]
         if char == '(':
             num += 1
         elif char == ')':
@@ -18,15 +18,16 @@ def is_correct(string):
 
 
 # 문자열 u을 '올바른 괄호 문자열'으로 교정하는 함수
-def correct_u(string):
-    new_str = ''
-    for i in range(len(string)):
-        char = string[i]
-        if char == '(' and i != 0 and i != len(string) - 1:
-            new_str += ')'
-        elif char == ')' and i != 0 and i != len(string) - 1:
-            new_str += '('
-    return new_str
+def correct_u(deq):
+    deq.popleft()
+    deq.pop()
+    for _ in range(len(deq)):
+        char = deq.popleft()
+        if char == '(':
+            deq.append(')')
+        elif char == ')':
+            deq.append('(')
+    return deq
 
 
 def solution(p):
@@ -36,17 +37,17 @@ def solution(p):
         return p
     
     # 2. 입력받은 문자열을 두 '균형잡힌 괄호 문자열' u와 v로 분리한다.
-    u = ''
-    v = ''
+    u = deque()
+    v = deque(p)
 
     separated = False
     left, right = 0, 0
-    for i in range(len(p)):
-        char = p[i]
+    for _ in range(len(p)):
+        char = v.popleft()
         if not separated:
-            u += char
+            u.append(char)
         else:
-            v += char
+            v.append(char)
 
         if char == '(':
             left += 1
@@ -58,10 +59,10 @@ def solution(p):
     # 3. 수행한 결과 문자열을 u에 이어붙인 후 반환한다.
     # 3-1. 문자열 u가 '올바른 괄호 문자열'이라면 v에 대해 1단계부터 다시 수행한다.
     if is_correct(u):
-        answer = answer + u + solution(v)
+        answer = answer + ''.join(u) + solution(''.join(v))
     # 4. 문자열 u가 '올바른 괄호 문자열'이 아니면 아래의 과정을 수행한다.
     else:
-        answer = answer + '(' + solution(v) + ')' + ''.join(correct_u(u))
+        answer = answer + '(' + solution(''.join(v)) + ')' + ''.join(correct_u(u))
 
     return answer
 

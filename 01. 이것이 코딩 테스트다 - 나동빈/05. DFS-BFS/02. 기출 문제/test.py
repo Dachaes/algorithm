@@ -1,8 +1,9 @@
 from collections import deque
+from copy import deepcopy
 
-deq = deque()
-deq.append(1)
-deq.append(2)
-deq.append(3)
+numbers = [1, 2, 3, 4]
+deq_numbers = deque(numbers)
+new_numbers = deepcopy(deq_numbers)
 
-print(deq[2])
+new_numbers.popleft()
+print(new_numbers)
