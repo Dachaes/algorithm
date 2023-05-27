@@ -7,3 +7,6 @@ new_numbers = deepcopy(deq_numbers)
 
 new_numbers.popleft()
 print(new_numbers)
+
+print(f"-------------")
+print(int(-1 / 3))

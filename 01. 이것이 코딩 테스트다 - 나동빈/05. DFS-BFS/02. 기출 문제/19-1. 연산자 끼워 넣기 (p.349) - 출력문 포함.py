@@ -31,7 +31,7 @@ def calculate(cal_num1, cal_num2, type):
     elif type == 2:
         return cal_num1 * cal_num2
     else:
-        return cal_num1 // cal_num2
+        return int(cal_num1 / cal_num2)
 
 
 def solution(count, res, def_numbers, def_operators):
@@ -49,8 +49,8 @@ def solution(count, res, def_numbers, def_operators):
         return
 
     # 루프 조건
-    elif count == 0:
-        new_numbers = deepcopy(def_numbers)
+    new_numbers = deepcopy(def_numbers)
+    if count == 0:
         num1, num2 = new_numbers.popleft(), new_numbers.popleft()
     else:
         new_numbers = deepcopy(def_numbers)
@@ -66,7 +66,6 @@ def solution(count, res, def_numbers, def_operators):
         print(f"  res: {res}")
         print(f"--------------------------------------------------")
         solution(count + 1, res, new_numbers, new_operators2)
-
 
 
 answer = []
