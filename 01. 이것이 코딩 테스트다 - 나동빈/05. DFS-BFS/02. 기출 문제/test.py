@@ -1,12 +1,5 @@
 from collections import deque
 from copy import deepcopy
 
-numbers = [1, 2, 3, 4]
-deq_numbers = deque(numbers)
-new_numbers = deepcopy(deq_numbers)
-
-new_numbers.popleft()
-print(new_numbers)
-
-print(f"-------------")
-print(int(-1 / 3))
+union = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(max(max(union)))

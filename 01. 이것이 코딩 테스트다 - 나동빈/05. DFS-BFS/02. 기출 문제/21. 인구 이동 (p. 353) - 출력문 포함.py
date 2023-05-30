@@ -41,6 +41,9 @@ while True:
                 check_union(i, j, union_number)
                 union_average_population.append(sum_of_population // num_of_nation)
                 union_number += 1
+    print(f"최종 union: {union}")
+    print(f"최종 union_population: {union_average_population}")
+    print(f"인구 이동 전: {nation}")
 
     # 종료 조건 : 모든 국가가 다른 연합에 속해 있으면(인구 이동이 불가능하면) while 문을 종료한다.
     # 종료 조건에 맞지 않으면 날짜를 증가하고, 인구 이동을 시작한다.
@@ -55,5 +58,7 @@ while True:
         for j in range(n):
             check_union_number = union[i][j]
             nation[i][j] = union_average_population[check_union_number]
+    print(f"인구 이동 후: {nation}")
+    print(f"-----인구 이동 한 직후 day: {day}-----")
 
 print(day)
