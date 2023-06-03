@@ -1,5 +1,13 @@
 from collections import deque
 from copy import deepcopy
 
-union = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-print(max(max(union)))
+def test():
+    i = 0
+    if i == 1:
+        return [123]
+    else:
+        return
+
+temp = test()
+if temp:
+    print("111")
