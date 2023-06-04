@@ -5,6 +5,7 @@ from collections import deque
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
+
 def move(place, something):
     n, pos1, pos2, state, time = len(place), something[0], something[1], something[2], something[3]
     next_pos_list = []
@@ -15,6 +16,7 @@ def move(place, something):
                 next_pos_list.append([next_pos1, next_pos2, state, time + 1])
 
     return next_pos_list
+
 
 def rotate(place, something):
     n, pos1, pos2, state, time = len(place), something[0], something[1], something[2], something[3]
@@ -63,7 +65,9 @@ def rotate(place, something):
         if 0 <= next_pos2[1] < n:
             if place[next_pos2[0]][next_pos2[1]] == 0 and place[next_pos2[0] - 1][next_pos2[1]] == 0:
                 next_pos_list.append([next_pos1, next_pos2, state, time + 1])
+
     return next_pos_list
+
 
 def solution(board):
     n = len(board)
@@ -88,6 +92,7 @@ def solution(board):
                 else:
                     check_list.append([rotate_pos[0], rotate_pos[1]])
                     deq_robot.append(rotate_pos)
+
 
 # Input
 board0 = [[0, 0, 1, 1],

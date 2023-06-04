@@ -160,6 +160,7 @@ def solution(board):
                 deq_robot.append(next_pos8)
         print(f"------------------------------")
 
+
 # Input
 board0 = [[0, 0, 1, 1],
           [0, 0, 1, 1],
