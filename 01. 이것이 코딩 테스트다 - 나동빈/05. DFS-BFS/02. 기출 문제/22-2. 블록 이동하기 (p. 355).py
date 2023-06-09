@@ -1,8 +1,9 @@
 # 22. 블록 이동하기 (p. 355)
 # https://programmers.co.kr/learn/courses/30/lessons/60063
+# 22-1보다 코드 가독성이 좋으나 시간이 상대적으로 느림
 from collections import deque
 
-dx = [-1, 1, 0, 0]
+dx = [-1, 1, 0,
 dy = [0, 0, -1, 1]
 
 
