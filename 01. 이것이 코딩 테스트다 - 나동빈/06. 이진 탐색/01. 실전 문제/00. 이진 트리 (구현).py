@@ -13,19 +13,19 @@ class BinaryTree:
         if self.root is None:
             self.root = Node(data)
         else:
-            self.insert(self.root, data)
+            self.insert_recursive(self.root, data)
 
-    def insert(self, node, data):
+    def insert_recursive(self, node, data):
         if data < node.data:
             if node.left is None:
                 node.left = Node(data)
             else:
-                self.insert(node.left, data)
+                self.insert_recursive(node.left, data)
         else:
             if node.right is None:
                 node.right = Node(data)
             else:
-                self.insert(node.right, data)
+                self.insert_recursive(node.right, data)
 
     def search(self, data):
         return self._search_recursive(self.root, data)
