@@ -28,12 +28,12 @@ class BinaryTree:
                 self.insert_recursive(node.right, data)
 
     def search(self, data):
-        return self._search_recursive(self.root, data)
+        return self.search_recursive(self.root, data)
 
-    def _search_recursive(self, node, data):
+    def search_recursive(self, node, data):
         if node is None or node.data == data:
             return node
         if data < node.data:
-            return self._search_recursive(node.left, data)
+            return self.search_recursive(node.left, data)
         else:
-            return self._search_recursive(node.right, data)
+            return self.search_recursive(node.right, data)

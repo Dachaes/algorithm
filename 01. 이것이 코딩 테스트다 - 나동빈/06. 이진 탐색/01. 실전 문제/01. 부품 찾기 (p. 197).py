@@ -39,10 +39,10 @@ for answer in answers:
 # 8 3 7 9 2
 # 3
 # 5 7 9
-# no yes yes
+# res = no yes yes
 
 # 5
 # 8 3 7 9 2
 # 3
 # 1 4 5
-# no no no
+# res = no no no
