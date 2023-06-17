@@ -4,20 +4,19 @@ import sys
 # Input
 n, request = map(int, sys.stdin.readline().split())
 tteoks = list(map(int, sys.stdin.readline().split()))
-
 the_longest_tteok = max(tteoks)
-len_tteok_in_all_case = [i for i in range(the_longest_tteok)]
+
 
 def cut_tteoks(start, mid, end):
-    len_tteok, left_over, end_of_search = -1, -1, False
+    len_tteok, left_over, = -1, -1
     while True:
         temp_left_over = 0
         # 1. 종료 조건
-        if start == mid or mid == end:
-            end_of_search = True
+        if start > end:
+            return len_tteok
 
         # 2-1. 떡 자르기 조건
-        temp_len_tteok = len_tteok_in_all_case[mid]
+        temp_len_tteok = mid
         for tteok in tteoks:
             if temp_len_tteok < tteok:
                 temp_left_over += tteok - temp_len_tteok
@@ -38,9 +37,6 @@ def cut_tteoks(start, mid, end):
         else:
             end = mid - 1
             mid = (start + end) // 2
-
-        if end_of_search:
-            return len_tteok
 
 
 answer = cut_tteoks(0, (n - 1) // 2, the_longest_tteok - 1)
