@@ -20,7 +20,7 @@ def find_number(start, mid, end):
 
     # 2. max_index 찾기
     start, end = mid, n - 1
-    while start <= end or min_index != -1:
+    while start <= end and min_index != -1:
         mid = (start + end) // 2
         if x < numbers[mid]:
             end = mid - 1
