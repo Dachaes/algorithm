@@ -17,8 +17,8 @@ def cut_tteoks(start, mid, end):
             if temp_len_tteok < tteok:
                 temp_left_over += tteok - temp_len_tteok
 
+        # 2-2. 값 저장 조건 -> 손님에게 줄 떡(left_over)이 충분
         if temp_left_over >= request:
-            # 2-2. 값 저장 조건 -> 손님에게 줄 떡(left_over)이 충분
             len_tteok = temp_len_tteok
             # 3-1. 탐색 조건 -> 손님에게 줄 떡(left_over)이 충분하니, 남기는 떡의 길이(len_tteok)를 더 늘린다.
             start = mid + 1
