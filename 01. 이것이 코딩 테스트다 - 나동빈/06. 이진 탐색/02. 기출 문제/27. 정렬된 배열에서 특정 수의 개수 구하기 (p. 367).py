@@ -20,14 +20,14 @@ def find_number(start, mid, end):
 
     # 2. max_index 찾기
     start, end = mid, n - 1
-    while start <= end:
+    while start <= end or min_index != -1:
+        mid = (start + end) // 2
         if x < numbers[mid]:
             end = mid - 1
         else:
             if x == numbers[mid]:
                 max_index = mid
             start = mid + 1
-        mid = (start + end) // 2
 
     # 3. 특정 숫자(x)의 개수 도출
     if min_index != -1 and max_index != -1:
