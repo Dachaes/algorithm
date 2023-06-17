@@ -4,52 +4,47 @@ import sys
 # Input
 n, request = map(int, sys.stdin.readline().split())
 tteoks = list(map(int, sys.stdin.readline().split()))
-tteoks.sort()
 
+the_longest_tteok = max(tteoks)
+len_tteok_in_all_case = [i for i in range(the_longest_tteok)]
 
-def cut_tteoks(array, mid, start, end):
-    # 이진 탐색 조건
-    global target
+def cut_tteoks(start, mid, end):
+    len_tteok, left_over, end_of_search = -1, -1, False
     while True:
-        mid1 = mid
-        mid2 = mid + 1
-        # print(f"target: {target} --> mid1: {mid1}, mid2: {mid2}")
+        temp_left_over = 0
         # 1. 종료 조건
-        if mid1 != -1 and mid2 != n:
-            if array[mid1] <= target <= array[mid2] or array[0] <= target:
-                target = mid2
-                break
-            elif array[n - 1] <= target:
-                target = -1
-                break
-        else:
-            target = -1
-            break
+        if start == mid or mid == end:
+            end_of_search = True
 
-        # 2. 탐색 조건
-        if array[mid2] < target:
+        # 2-1. 떡 자르기 조건
+        temp_len_tteok = len_tteok_in_all_case[mid]
+        for tteok in tteoks:
+            if temp_len_tteok < tteok:
+                temp_left_over += tteok - temp_len_tteok
+
+        if temp_left_over >= request:
+            # 2-2. 값 저장 조건 -> 손님에게 줄 떡(left_over)이 충분 + 기존보다 많은 길이의 떡(len_tteok)을 남김
+            if len_tteok == left_over == -1:
+                len_tteok = temp_len_tteok
+                left_over = temp_left_over
+            elif len_tteok < temp_len_tteok:
+                len_tteok = temp_len_tteok
+                left_over = temp_left_over
+            # 3-1. 탐색 조건 -> 손님에게 줄 떡(left_over)이 충분하니, 남기는 떡의 길이(len_tteok)를 더 늘린다.
             start = mid + 1
             mid = (start + end) // 2
-        elif target < array[mid1]:
+
+        # 3-2. 탐색 조건 -> 손님에게 줄 떡(left_over)이 부족하니, 남기는 떡의 길이(len_tteok)를 더 줄인다.
+        else:
             end = mid - 1
             mid = (start + end) // 2
 
-    # 떡 자르기 조건
-    global left_over
-    if target != -1:
-        for i in range(target, end):
-            left_over += array[i] - target
+        if end_of_search:
+            return len_tteok
 
 
-target = tteoks[-1] - 1
-while True:
-    left_over = 0
-    if left_over >= request:
-        break
-    cut_tteoks(tteoks, (n - 1) // 2, 0, n - 1)
-    target -= 1
-
-print(left_over)
+answer = cut_tteoks(0, (n - 1) // 2, the_longest_tteok - 1)
+print(answer)
 
 # 4 6
 # 19 15 10 17
