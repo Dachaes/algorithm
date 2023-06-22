@@ -104,4 +104,4 @@ queries3 = ["?", "a", "b", "???a", "??aa", "??ab", "aa??", "aaa?"]
 queries3_1 = ["??ab"]
 
 # Output
-print(solution(words1, queries1_1))
+print(solution(words3, queries3))
