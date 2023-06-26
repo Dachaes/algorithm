@@ -18,8 +18,7 @@ for k in range(1, num_company + 1):
             # 1. 입력 받은 path를 distance에 저장
             if k == i == j == 1:
                 for path in paths:
-                    distance[path[0]][path[1]] = 1
-                    distance[path[1]][path[0]] = 1
+                    distance[path[0]][path[1]] = distance[path[1]][path[0]] = 1
             # 2. 같은 도시에서 같은 도시로 이동할 경우, distance에 0을 저장
             if k == 1 and i == j:
                 distance[i][j] = 0
