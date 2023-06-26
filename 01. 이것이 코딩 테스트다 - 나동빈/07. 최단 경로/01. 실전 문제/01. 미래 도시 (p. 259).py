@@ -21,10 +21,10 @@ for k in range(1, num_company + 1):
                     distance[path[0]][path[1]] = 1
                     distance[path[1]][path[0]] = 1
             # 2. 같은 도시에서 같은 도시로 이동할 경우, distance에 0을 저장
-            if i == j:
+            if k == 1 and i == j:
                 distance[i][j] = 0
             # 3. 최소 거리를 계산한 후, distance에 저장
-            else:
+            elif i != j:
                 distance[i][j] = min(distance[i][j], distance[i][k] + distance[k][j])
 
 # 4. 결과값 계산
