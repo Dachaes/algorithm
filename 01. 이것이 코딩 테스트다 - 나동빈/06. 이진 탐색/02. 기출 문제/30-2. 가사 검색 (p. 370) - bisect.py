@@ -1,4 +1,4 @@
-# 30. 가사 검색 (p.370)
+# 30. 가사 검색 (p. 370)
 # https://school.programmers.co.kr/learn/courses/30/lessons/60060
 from bisect import bisect_left, bisect_right
 

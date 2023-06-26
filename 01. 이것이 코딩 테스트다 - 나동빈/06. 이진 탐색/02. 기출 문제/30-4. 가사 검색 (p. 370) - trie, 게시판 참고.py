@@ -1,11 +1,9 @@
 # 30. 가사 검색 (p. 370)
 # https://school.programmers.co.kr/learn/courses/30/lessons/60060
-from collections import deque
-
-
 class Node:
     def __init__(self, data):
         self.letter = data
+        self.count = 0
         self.children = {}
         self.is_end_of_word = False
 
@@ -13,18 +11,20 @@ class Node:
 class Trie:
     def __init__(self):
         self.root = Node(None)
-
+        self.count = 0
     def insert(self, string):
         current_node = self.root
+        self.count += 1
+
         for char in string:
             if char not in current_node.children:
                 current_node.children[char] = Node(char)
             current_node = current_node.children[char]
+            current_node.count += 1
         current_node.is_end_of_word = True
 
     def search(self, string):
         current_node = self.root
-        deq_next_node = deque()
         for char in string:
             if char != '?':
                 if char in current_node.children:
@@ -32,22 +32,9 @@ class Trie:
                 else:
                     return 0
             else:
-                if not deq_next_node:
-                    for node in current_node.children.values():
-                        deq_next_node.append(node)
-                else:
-                    for _ in range(len(deq_next_node)):
-                        current_node = deq_next_node.popleft()
-                        for node in current_node.children.values():
-                            deq_next_node.append(node)
+                break
 
-        count = 0
-        while deq_next_node:
-            current_node = deq_next_node.popleft()
-            if current_node.is_end_of_word:
-                count += 1
-
-        return count
+        return current_node.count
 
 
 def solution(words, queries):
@@ -64,6 +51,8 @@ def solution(words, queries):
     for query in queries:
         if len(query) not in trie_words:
             answer.append(0)
+        elif len(query) == query.count('?'):
+            answer.append(trie_words[len(query)].count)
         elif query[0] != '?':
             answer.append(trie_words[len(query)].search(query))
         else:

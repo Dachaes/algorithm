@@ -1,4 +1,4 @@
-# 19. 연산자 끼워 넣기 (p.349)
+# 19. 연산자 끼워 넣기 (p. 349)
 # https://www.acmicpc.net/problem/14888
 import sys
 from copy import deepcopy
