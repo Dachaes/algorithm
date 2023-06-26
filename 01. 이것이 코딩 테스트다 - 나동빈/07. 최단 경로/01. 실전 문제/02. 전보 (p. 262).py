@@ -1,5 +1,6 @@
 # 02. 전보 (p. 262)
-import sys, heapq
+import heapq
+import sys
 
 # Input
 num_company, num_path, start = map(int, sys.stdin.readline().split())
