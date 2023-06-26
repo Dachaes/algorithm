@@ -32,8 +32,7 @@ max_dist = 0
 for i in range(num_company + 1):
     if distance[i] != 0 and distance[i] != INF:
         count += 1
-    if distance[i] != INF and max_dist < distance[i]:
-        max_dist = distance[i]
+        max_dist = max(max_dist, distance[i])
 
 print(count, max_dist)
 
