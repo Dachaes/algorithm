@@ -18,13 +18,12 @@ heapq.heappush(q_dijkstra, (0, start))
 distance[start] = 0
 while q_dijkstra:
     dist, pos = heapq.heappop(q_dijkstra)
-    if distance[pos] < dist:
-        continue
-    for path in paths[pos]:
-        next_pos, next_dist = path[0], dist + path[1]
-        if next_dist < distance[next_pos]:
-            distance[next_pos] = next_dist
-            heapq.heappush(q_dijkstra, (dist, next_pos))
+    if dist <= distance[pos]:
+        for path in paths[pos]:
+            next_pos, next_dist = path[0], dist + path[1]
+            if next_dist < distance[next_pos]:
+                distance[next_pos] = next_dist
+                heapq.heappush(q_dijkstra, (next_dist, next_pos))
             
 # 2. 결과 도출        
 count = 0
@@ -34,5 +33,16 @@ for i in range(num_company + 1):
         count += 1
     if distance[i] != INF and max_dist < distance[i]:
         max_dist = distance[i]
-        
+
 print(count, max_dist)
+
+
+# 3 2 1
+# 1 2 4
+# 1 3 2
+# res = 2 4
+
+# 3 2 1
+# 1 2 4
+# 2 3 5
+# res = 2 9
