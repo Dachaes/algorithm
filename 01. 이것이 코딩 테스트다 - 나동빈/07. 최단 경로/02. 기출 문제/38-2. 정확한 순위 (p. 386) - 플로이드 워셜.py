@@ -9,6 +9,7 @@ for _ in range(num_comparisons):
     graph.append(list(map(int, sys.stdin.readline().split())))
 
 rank = [[INF] * (num_students + 1) for _ in range(num_students + 1)]
+
 for k in range(1, num_students + 1):
     for i in range(1, num_students + 1):
         for j in range(1, num_students + 1):
