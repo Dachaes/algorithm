@@ -1,4 +1,4 @@
-# 37. 플로이드 (p. 259)
+# 37. 플로이드 (p. 385)
 # https://www.acmicpc.net/problem/11404
 import sys
 
