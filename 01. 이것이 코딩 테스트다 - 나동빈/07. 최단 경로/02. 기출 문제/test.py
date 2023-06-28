@@ -1,8 +1,9 @@
 import heapq
+INF = int(1e9)
+n = 3
 
-a = [1, 2]
-b = [2, 3]
-
-# a + b -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-print(a + b[1:] + [True])
+distance = [[3 for _ in range(n)] for _ in range(n)]
+for i in range(n):
+    for j in range(n):
+        print(distance[i][j], end=' ')
+    print('')
